@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+
+    <style>
+         body{
+          background-image: url("https://securityintelligence.com/wp-content/uploads/2018/05/mobile-financial-transactions-are-faster-but-are-they-any-safer.jpg");
+          background-repeat: no-repeat;
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+         }  
+    </style>
+
+{% endblock style%}
+
+
+{% block content %}
+      
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/userhome/">Welcome</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/userhome/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/usertransactions/">Transactions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/analysis/">Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/editprofile/">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <form action="/addtransaction/" method="post"> 
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">_Category</label>
+        <select class="form-control" id="category" name="category" required>
+          {% for cat in category %}
+            <option>{{ cat.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">_Value</label>
+        <input type="number" class="form-control" id="value" name = "value" placeholder="amount" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">_Description</label>
+        <textarea type="text" class="form-control" id="memo" name="memo" placeholder="description about your expense" rows="1" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">_Date (YYYY-MM-DD)</label>
+        <textarea type="text" class="form-control" id="date" name="date" placeholder="date for the expense" rows="1" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+{% endblock %}

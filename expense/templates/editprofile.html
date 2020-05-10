@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+
+
+{% block style %}
+
+    <style>
+         body{
+          background-image: url("https://image.freepik.com/free-photo/colorful-paper-confetti-colored-pencils-clothespin-scissor-teal-background_23-2148164447.jpg");
+          background-repeat: no-repeat;
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+         }  
+    </style>
+
+{% endblock style%}
+
+
+{% block content %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/userhome/">Hi {{ user.first_name}} {{ user.last_name}} </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/userhome/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/usertransactions/">Transactions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/analysis/">Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <form action="/editprofile/" method="post">
+     {% csrf_token %} 
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">New Username</label>
+        <input type="text" class="form-control" id="username"  name="username" placeholder={{user.username}} > 
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">New First name</label>
+        <input type="text" class="form-control" id="firstname"  name="firstname" placeholder={{user.first_name}} > 
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">New Last name</label>
+        <input type="text" class="form-control" id="lastname"  name="lastname" placeholder={{user.last_name}} > 
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+      
+    </form>
+
+{% endblock %}    

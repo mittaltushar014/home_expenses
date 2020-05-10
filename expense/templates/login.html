@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+
+    <style>
+         body{
+          background-image: url("https://www.featurepics.com/StockImage/20080218/expenses-stock-picture-618362.jpg");
+          background-repeat: no-repeat;
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+         }  
+    </style>
+
+{% endblock style%}
+
+{% block content %}
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sign In</h5>
+                  <form class="form-signin" action='/login/' method="post">
+                    {%csrf_token %}
+                    <div class="form-label-group">
+                      <label for="inputEmail">Username</label><br>
+                      <input type="text" id="username" name="username" class="form-control" placeholder="Your username" required autofocus>
+                       <br>
+                    </div>
+
+                    <div class="form-label-group">
+                      <label for="inputPassword">Password</label><br>
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Your password" required>
+                      <br>
+                    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+
+                    <hr class="my-2">
+                  </form>
+                    <a class="btn btn-lg btn-primary btn-block text-uppercase" href="/signup/" role="button">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
