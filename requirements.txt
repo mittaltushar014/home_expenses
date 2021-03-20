@@ -20,7 +20,7 @@ Flask==1.1.1
 httplib2==0.9.2
 idna==2.6
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 kazam==1.4.5
 kiwisolver==1.2.0
 louis==3.5.0
