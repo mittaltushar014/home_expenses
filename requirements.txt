@@ -31,7 +31,7 @@ MarkupSafe==1.0
 matplotlib==3.2.1
 nemo-emblems==4.4.0
 netifaces==0.10.4
-numpy==1.18.2
+numpy==1.22.0
 onboard==1.4.1
 PAM==0.4.2
 pandas==1.0.3
